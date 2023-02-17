@@ -94,17 +94,20 @@ DB_NAME = os.getenv('DATABASE_NAME')
 DB_USER = os.getenv('DATABASE_USER')
 DB_PASS = os.getenv('DATABASE_PASS')
 DB_HOST = os.getenv('DATABASE_HOST')
-
+DB_NAME = os.getenv('DATABASE_NAME')
+DB_NAME = os.getenv('DATABASE_NAME')
 print("DB_NAME", DB_NAME)
+
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER': os.getenv('DATABASE_USER'),
-        'PASSWORD': os.getenv('DATABASE_PASS'),
-        'HOST': os.getenv('DATABASE_HOST'),
-        #'HOST': '35.234.128.58',
+        'NAME': 'hpfolio',
+        'USER': 'heidlessdb',
+        'PASSWORD': 'havana11',
+        'HOST': 'localhost',
+        'HOST': '35.189.112.171',
         #'HOST': '10.154.0.3',   # insternal IP
         'PORT': '', # leave blank so the default port is selected
 #        'PORT': '', # leave blank so the default port is selected
