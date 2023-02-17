@@ -92,14 +92,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DB_NAME = os.getenv('DATABASE_NAME')
-DB_USER = os.getenv('DATABASE_USER')
-DB_PASS = os.getenv('DATABASE_PASS')
-DB_HOST = os.getenv('DATABASE_HOST')
-DB_NAME = os.getenv('DATABASE_NAME')
-DB_NAME = os.getenv('DATABASE_NAME')
 print("DB_NAME", DB_NAME)
 
+DB_USER = os.getenv('DATABASE_USER')
+print("DB_USER", DB_USER)
 
+DB_PASS = os.getenv('DATABASE_PASS')
+print("DB_PASS", DB_PASS)
+
+DB_HOST = os.getenv('DATABASE_HOST')
+print("DB_HOST", DB_HOST)
 
 DATABASES = {
     'default': {
