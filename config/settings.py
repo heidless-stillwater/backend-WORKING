@@ -19,16 +19,17 @@ print("****************************")
 
 SECRET_KEY = env('SECRET_KEY')
 
-print("DEBUG::", env('DEBUG'))
-
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = bool(int(os.environ.get('DEBUG',0)))
 #print("DEBUG::", env('DEBUG'))
 DEBUG=env('DEBUG')
 
+print("DEBUG::", DEBUG)
+
+
 #DEBUG = False
 
-ALLOWED_HOSTS = ['34.105.139.229','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 #ALLOWED_HOSTS = [
 #    '0.0.0.0',
@@ -104,7 +105,8 @@ DATABASES = {
         'USER': 'heidless',
         'PASSWORD': 'arjuna11',
         #'HOST': 'localhost',
-        'HOST': '35.189.112.171',
+        #'HOST': '35.189.112.171',
+        'HOST': '35.234.128.58',
         'PORT': '', # leave blank so the default port is selected
 #        'PORT': '', # leave blank so the default port is selected
     }
