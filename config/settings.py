@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ['*']
 #    '*',
 #]
 
+print("INSTALLED APPS")
 
 # Application definition
 
@@ -62,6 +63,8 @@ INSTALLED_APPS = [
     'upload',
 ]
 
+print("MIDDLEWARE")
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -75,6 +78,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+print("TEMPLATES")
 
 TEMPLATES = [
     {
@@ -97,6 +102,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+print("DATABASES")
 
 DATABASES = {
     'default': {
@@ -162,6 +169,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # MEDIA_ROOT is for the user-uploaded content
+
+print("STATIC")
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static')
