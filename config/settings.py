@@ -8,6 +8,7 @@ env = environ.Env()
 environ.Env.read_env()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
+print("SECRET_KEY:", SECRET_KEY)
 #SECRET_KEY = env('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
