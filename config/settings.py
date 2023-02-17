@@ -7,18 +7,15 @@ from pathlib import Path
 env = environ.Env()
 environ.Env.read_env()
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-print("SECRET_KEY:", SECRET_KEY)
-#SECRET_KEY = env('SECRET_KEY')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = bool(int(os.environ.get('DEBUG',0)))
 #print("DEBUG::", env('DEBUG'))
-DEBUG=os.getenv('DEBUG')
+DEBUG=env('DEBUG')
 
 print("DEBUG::", DEBUG)
 
@@ -90,18 +87,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DB_NAME = os.getenv('DATABASE_NAME')
-print("DB_NAME", DB_NAME)
-
-DB_USER = os.getenv('DATABASE_USER')
-print("DB_USER", DB_USER)
-
-DB_PASS = os.getenv('DATABASE_PASS')
-print("DB_PASS", DB_PASS)
-
-DB_HOST = os.getenv('DATABASE_HOST')
-print("DB_HOST", DB_HOST)
 
 DATABASES = {
     'default': {
