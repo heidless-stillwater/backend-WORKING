@@ -109,10 +109,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hpfolio',
-        'USER': 'heidlessDB',
+        'USER': 'heidlessdb',
         'PASSWORD': 'havana11',
-        #'HOST': 'localhost',
-        'HOST': '35.234.128.58',
+        'HOST': 'localhost',
+        #'HOST': '35.234.128.58',
         #'HOST': '10.154.0.3',   # insternal IP
         'PORT': '', # leave blank so the default port is selected
 #        'PORT': '', # leave blank so the default port is selected
