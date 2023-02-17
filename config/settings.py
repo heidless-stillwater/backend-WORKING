@@ -103,7 +103,8 @@ DATABASES = {
         'NAME': 'hpfolio',
         'USER': 'heidless',
         'PASSWORD': 'arjuna11',
-        'HOST': 'localhost',
+        #'HOST': 'localhost',
+        'HOST': '35.189.112.171',
         'PORT': '', # leave blank so the default port is selected
 #        'PORT': '', # leave blank so the default port is selected
     }
