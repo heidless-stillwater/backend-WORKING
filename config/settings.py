@@ -7,15 +7,17 @@ from pathlib import Path
 env = environ.Env()
 environ.Env.read_env()
 
+SECRET_KEY = os.getenv("SECRET_KEY")
+#SECRET_KEY = env('SECRET_KEY')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = bool(int(os.environ.get('DEBUG',0)))
 #print("DEBUG::", env('DEBUG'))
-DEBUG=env('DEBUG')
+DEBUG=os.getenv('DEBUG')
 
 print("DEBUG::", DEBUG)
 
@@ -88,13 +90,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DB_NAME = os.getenv('DATABASE_NAME')
+DB_USER = os.getenv('DATABASE_USER')
+DB_PASS = os.getenv('DATABASE_PASS')
+DB_HOST = os.getenv('DATABASE_HOST')
+
+print("DB_NAME", DB_NAME)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hpfolio',
-        'USER': 'heidlessdb',
-        'PASSWORD': 'havana11',
-        'HOST': 'localhost',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASS'),
+        'HOST': os.getenv('DATABASE_HOST'),
         #'HOST': '35.234.128.58',
         #'HOST': '10.154.0.3',   # insternal IP
         'PORT': '', # leave blank so the default port is selected
