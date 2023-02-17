@@ -16,8 +16,6 @@ SECRET_KEY = env('SECRET_KEY')
 #print("DEBUG::", env('DEBUG'))
 DEBUG=env('DEBUG')
 
-#DEBUG = False
-
 print("DEBUG::", DEBUG)
 
 #ALLOWED_HOSTS = ['35.234.128.58','10.154.0.3','localhost','127.0.0.1']
@@ -30,8 +28,6 @@ ALLOWED_HOSTS = ['*']
 #    '127.0.0.1',
 #    '*',
 #]
-
-print("INSTALLED APPS")
 
 # Application definition
 
@@ -55,8 +51,6 @@ INSTALLED_APPS = [
     'upload',
 ]
 
-print("MIDDLEWARE")
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -70,8 +64,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
-print("TEMPLATES")
 
 TEMPLATES = [
     {
@@ -94,8 +86,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-print("DATABASES")
 
 DATABASES = {
     'default': {
@@ -162,13 +152,9 @@ USE_TZ = True
 
 # MEDIA_ROOT is for the user-uploaded content
 
-print("STATIC")
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static')
 ]
-
-print("GOOGLEAUTH")
 
 from google.oauth2 import service_account
 # storage
@@ -178,38 +164,23 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'django-upload-bucket-heidless'
 
-print("STORAGE")
-
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 #STATIC_URL = '/static/'
 
-print("URL")
-
 STATIC_URL = 'https://storage.cloud.google.com/django-upload-bucket-heidless/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-print("MEDIA")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-print("AUTO")
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-print("CORS")
 
 CORS_ALLOWED_ORIGINS = [
     env('FRONTEND_URL'),
 ]
  
-print("UPLOAD")
-
 FILE_UPLOAD_PERMISSIONS=0o640
-
-print("SETTINGS END")
