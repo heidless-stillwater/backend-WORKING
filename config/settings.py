@@ -24,12 +24,11 @@ SECRET_KEY = env('SECRET_KEY')
 #print("DEBUG::", env('DEBUG'))
 DEBUG=env('DEBUG')
 
-print("DEBUG::", DEBUG)
-
-
 #DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+print("DEBUG::", DEBUG)
+
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 #ALLOWED_HOSTS = [
 #    '0.0.0.0',
