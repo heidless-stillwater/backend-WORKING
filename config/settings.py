@@ -106,7 +106,7 @@ DATABASES = {
         'NAME': 'hpfolio',
         'USER': 'heidlessdb',
         'PASSWORD': 'havana11',
-        'HOST': 'localhost',
+        #'HOST': 'localhost',
         'HOST': '35.189.112.171',
         #'HOST': '10.154.0.3',   # insternal IP
         'PORT': '', # leave blank so the default port is selected
