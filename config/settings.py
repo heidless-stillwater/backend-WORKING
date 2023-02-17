@@ -109,8 +109,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hpfolio',
-        'USER': 'heidless',
-        'PASSWORD': 'arjuna11',
+        'USER': 'heidlessDB',
+        'PASSWORD': 'havana11',
         #'HOST': 'localhost',
         'HOST': '35.234.128.58',
         #'HOST': '10.154.0.3',   # insternal IP
@@ -220,4 +220,4 @@ print("UPLOAD")
 
 FILE_UPLOAD_PERMISSIONS=0o640
 
-print("SETTING END")
+print("SETTINGS END")
