@@ -105,8 +105,8 @@ DATABASES = {
         'USER': 'heidless',
         'PASSWORD': 'arjuna11',
         #'HOST': 'localhost',
-        #'HOST': '35.189.112.171',
-        'HOST': '10.154.0.3',   # insternal IP
+        'HOST': '35.234.128.58',
+        #'HOST': '10.154.0.3',   # insternal IP
         'PORT': '', # leave blank so the default port is selected
 #        'PORT': '', # leave blank so the default port is selected
     }
