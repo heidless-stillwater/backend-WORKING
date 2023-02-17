@@ -17,9 +17,8 @@ SECRET_KEY = env('SECRET_KEY')
 #print("DEBUG::", env('DEBUG'))
 DEBUG=env('DEBUG')
 
-print("DEBUG::", DEBUG)
-
 DEBUG=False
+print("DEBUG::", DEBUG)
 
 #ALLOWED_HOSTS = ['35.234.128.58','10.154.0.3','localhost','127.0.0.1']
 ALLOWED_HOSTS = ['*']
