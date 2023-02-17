@@ -28,7 +28,7 @@ DEBUG=env('DEBUG')
 
 print("DEBUG::", DEBUG)
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ['35.234.128.58','10.154.0.3','localhost','127.0.0.1']
 
 #ALLOWED_HOSTS = [
 #    '0.0.0.0',
