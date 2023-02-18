@@ -17,6 +17,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 print("setting SECRET_KEY")
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+SECRET_KEY = os.getenv('SECRET_KEY')
+print("SECRET_KEY", SECRET_KEY)
+
+DB_NAME = os.getenv('DATABASE_NAME')
+print('DB_NAME', DB_NAME)
+DB_USER = os.getenv('DATABASE_USER')
+print('DB_USER', DB_USER)
+DB_PASS = os.getenv('DATABASE_PASS')
+print('DB_PASS', DB_PASS)
+DB_HOST = os.getenv('DATABASE_HOST')
+print('DB_HOST', DB_HOST)
+
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = bool(int(os.environ.get('DEBUG',0)))
 #print("DEBUG::", env('DEBUG'))
