@@ -2,22 +2,34 @@
 import environ
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
 
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env()
 
+load_dotenv()  # take environment variables from .env.
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env('SECRET_KEY')
+print("setting SECRET_KEY")
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = bool(int(os.environ.get('DEBUG',0)))
 #print("DEBUG::", env('DEBUG'))
-DEBUG=env('DEBUG')
 
-DEBUG=False
+# when DEBUG = False : Not Found The requested resource was not found on this server.
+# research cause of this
+# test running as production in local env
+#
+# https://stackoverflow.com/questions/1626326/how-to-manage-local-vs-production-settings-in-django
+# restructure to specific production & local settings
+#
+DEBUG=os.getenv('DEBUG')
+
 print("DEBUG::", DEBUG)
 
 #ALLOWED_HOSTS = ['35.234.128.58','10.154.0.3','localhost','127.0.0.1']
@@ -92,11 +104,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hpfolio',
-        'USER': 'heidlessdb',
-        'PASSWORD': 'havana11',
-        #'HOST': 'localhost',
-        'HOST': '35.189.112.171',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASS'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        #'HOST': '35.189.112.171',
         #'HOST': '10.154.0.3',   # insternal IP
         'PORT': '', # leave blank so the default port is selected
 #        'PORT': '', # leave blank so the default port is selected
