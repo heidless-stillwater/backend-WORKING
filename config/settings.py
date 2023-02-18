@@ -116,10 +116,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hpfolio',
-        'USER': 'lockhart_r',
-        'PASSWORD': 'havana11',
-        'HOST': '34.105.156.106',
+        'NAME': os.getenv('DATABASE_NAME'), 
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASS'),
+        'HOST': os.getenv('DATABASE_HOST'),
         #'HOST': '35.189.112.171',
         #'HOST': '10.154.0.3',   # insternal IP
         'PORT': '', # leave blank so the default port is selected
