@@ -120,10 +120,7 @@ DATABASES = {
         'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('DATABASE_PASS'),
         'HOST': os.getenv('DATABASE_HOST'),
-        #'HOST': '35.189.112.171',
-        #'HOST': '10.154.0.3',   # insternal IP
-        'PORT': '', # leave blank so the default port is selected
-#        'PORT': '', # leave blank so the default port is selected
+        'PORT': '',
     }
 }
 
