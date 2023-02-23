@@ -1,5 +1,6 @@
 # project
 .git
+.git-gae
 venv/
 # Django #
 *.log
