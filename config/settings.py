@@ -3,7 +3,7 @@ import environ
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-
+from urllib.parse import urlparse
 
 # Initialise environment variables
 env = environ.Env()
@@ -32,8 +32,19 @@ DEBUG=os.getenv('DEBUG')
 
 print("DEBUG::", DEBUG)
 
-#ALLOWED_HOSTS = ['35.234.128.58','10.154.0.3','localhost','127.0.0.1']
-ALLOWED_HOSTS = ['*']
+APPENGINE_URL = env('APPENGINE_URL', default=None)
+if APPENGINE_URL:
+    # ensure a scheme is present in the URL before it's processed.
+    if not urlparse(APPENGINE_URL).scheme:
+        APPENGINE_URL = f'https://{APPENGINE_URL}'
+
+    ALLOWED_HOSTS = [urlparse(APPENGINE_URL).netloc]
+    CSRF_TRUSTED_ORIGINS = [APPENGINE_URL]
+    SECURE_SSL_REDIRECT = True
+else:
+    ALLOWED_HOSTS = ['*']
+
+DATABASES = {'default': env.db()}
 
 #ALLOWED_HOSTS = [
 #    '0.0.0.0',
@@ -101,19 +112,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER': os.getenv('DATABASE_USER'),
-        'PASSWORD': os.getenv('DATABASE_PASS'),
-        'HOST': os.getenv('DATABASE_HOST'),
-        #'HOST': '35.189.112.171',
-        #'HOST': '10.154.0.3',   # insternal IP
-        'PORT': '', # leave blank so the default port is selected
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': os.getenv('DATABASE_NAME'),
+#        'USER': os.getenv('DATABASE_USER'),
+#        'PASSWORD': os.getenv('DATABASE_PASS'),
+#        'HOST': os.getenv('DATABASE_HOST'),
+#        #'HOST': '35.189.112.171',
+#        #'HOST': '10.154.0.3',   # insternal IP
 #        'PORT': '', # leave blank so the default port is selected
-    }
-}
+##        'PORT': '', # leave blank so the default port is selected
+#    }
+#}
 
 #DATABASES = {
 #    'default': {
