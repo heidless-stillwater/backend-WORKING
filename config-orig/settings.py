@@ -12,7 +12,7 @@ from google.oauth2 import service_account
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(DEBUG=(bool, False))
-env_file = os.path.join(BASE_DIR, 'config/.env')
+env_file = os.path.join(BASE_DIR, 'core/.env')
 
 if os.path.isfile(env_file):
     # read a local .env file

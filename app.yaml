@@ -1,6 +1,6 @@
 runtime: python39
 env: standard
-entrypoint: gunicorn -b :$PORT core.wsgi:application
+entrypoint: gunicorn -b :$PORT config.wsgi:application
 
 handlers:
 - url: /static              # new
