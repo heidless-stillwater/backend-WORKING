@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, False))
 env_file = os.path.join(BASE_DIR, 'config/.env')
 
-print("TEST: ######### checking ENV:" + env_file)
+print("checking ENV:" + env_file)
 
 if os.path.isfile(env_file):
     # read a local .env file
@@ -42,8 +42,9 @@ CORS_ALLOWED_ORIGINS = [
     FRONTEND_URL
 ]
  
-print("setting SECRET_KEY")
 SECRET_KEY = os.getenv('SECRET_KEY')
+print("SECRET_KEY", SECRET_KEY)
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = bool(int(os.environ.get('DEBUG',0)))
@@ -71,7 +72,7 @@ if APPENGINE_URL:
 else:
     ALLOWED_HOSTS = ['*']
 
-DATABASES = {'default': env.db()}
+#DATABASES = {'default': env.db()}
 
 #ALLOWED_HOSTS = [
 #    '0.0.0.0',
@@ -139,19 +140,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': os.getenv('DATABASE_NAME'),
-#        'USER': os.getenv('DATABASE_USER'),
-#        'PASSWORD': os.getenv('DATABASE_PASS'),
-#        'HOST': os.getenv('DATABASE_HOST'),
-#        #'HOST': '35.189.112.171',
-#        #'HOST': '10.154.0.3',   # insternal IP
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASS'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        #'HOST': '35.189.112.171',
+        #'HOST': '10.154.0.3',   # insternal IP
+        'PORT': os.getenv('DATABASE_PORT'),
 #        'PORT': '', # leave blank so the default port is selected
-##        'PORT': '', # leave blank so the default port is selected
-#    }
-#}
+    }
+}
 
 #DATABASES = {
 #    'default': {
