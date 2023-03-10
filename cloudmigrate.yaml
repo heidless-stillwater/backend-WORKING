@@ -58,10 +58,17 @@ steps:
       ]
 
 substitutions:
-  _INSTANCE_NAME: pfolio-instance-2
+  _INSTANCE_NAME: pfolio-backend-instance-0
   _REGION: europe-west2
-  _SERVICE_NAME: pfolio-instance-2
+  _SERVICE_NAME: pfolio-backend-service
   _SECRET_SETTINGS_NAME: django_settings
+
+
+#substitutions:
+#  _INSTANCE_NAME: django-instance
+#  _REGION: us-central1
+#  _SERVICE_NAME: polls-service
+#  _SECRET_SETTINGS_NAME: django_settings
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"

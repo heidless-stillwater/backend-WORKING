@@ -23,11 +23,16 @@ WORKDIR $APP_HOME
 ENV PYTHONUNBUFFERED 1
 
 # Install dependencies
+RUN echo "working dir:"; ls
+RUN pip install --upgrade pip
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy local code to the container image.
-COPY . .
+COPY ./app .
+
+# show contents of $APP_HOME
+RUN ls
 
 # Run the web service on container startup. Here we use the gunicorn
 # webserver, with one worker process and 8 threads.

@@ -10,6 +10,17 @@ services:
             - POSTGRES_DB=hpfolio
         ports: 
             - 5432:5432
+    web:
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
+        ports:
+            - "8000:8000"
+        environment:
+            - POSTGRES_NAME=postgres
+            - POSTGRES_USER=heidless
+            - POSTGRES_PASSWORD=havana11
+        depends_on:
+            - db
     pgadmin:
         container_name: pgadmin4
         image: dpage/pgadmin4
