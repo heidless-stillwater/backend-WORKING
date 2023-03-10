@@ -27,7 +27,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Change this to "False" when you are ready for production
 env = environ.Env(DEBUG=(bool, True))
 env_file = os.path.join(BASE_DIR, "config/.env")
-print('env-file: ' + env_file)
 
 print("#####################")
 print(os.getenv('DATABASE_URL'))
@@ -55,6 +54,7 @@ except google.auth.exceptions.DefaultCredentialsError:
 if os.path.isfile(env_file):
     # Use a local secret file, if provided
     print("### Using local secret file")
+    print('env-file: ' + env_file)
     env.read_env(env_file)
 # [START_EXCLUDE]
 elif os.getenv("TRAMPOLINE_CI", None):
