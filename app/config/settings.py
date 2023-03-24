@@ -41,7 +41,6 @@ print(os.getenv('DATABASE_HOST'))
 print(os.getenv('DATABASE_PORT'))
 print("#####################")
 
-
         #'HOST': '35.189.112.171',
         #'HOST': '10.154.0.3',   # insternal IP
 
@@ -150,21 +149,21 @@ WSGI_APPLICATION = "config.wsgi.application"
 # [START cloudrun_django_database_config]
 # Use django-environ to parse the connection string
 
-DATABASES = {"default": env.db()}
+# DATABASES = {"default": env.db()}
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': os.getenv('DATABASE_NAME'),
-#       'USER': os.getenv('DATABASE_USER'),
-#        'PASSWORD': os.getenv('DATABASE_PASS'),
-#        'HOST': os.getenv('DATABASE_HOST'),
-###       #'HOST': '35.189.112.171',
-###       #'HOST': '10.154.0.3',   # insternal IP
-#        'PORT': os.getenv('DATABASE_PORT'),
-##        'PORT': '', # leave blank so the default port is selected
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME'),
+       'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASS'),
+        'HOST': os.getenv('DATABASE_HOST'),
+##       #'HOST': '35.189.112.171',
+##       #'HOST': '10.154.0.3',   # insternal IP
+        'PORT': os.getenv('DATABASE_PORT'),
+#        'PORT': '', # leave blank so the default port is selected
+    }
+}
 
 # If the flag as been set, configure to use proxy
 if os.getenv("USE_CLOUD_SQL_AUTH_PROXY", None):
