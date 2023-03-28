@@ -97,6 +97,8 @@ else:
     ALLOWED_HOSTS = ["*"]
 # [END cloudrun_django_csrf]
 
+print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -149,7 +151,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # [START cloudrun_django_database_config]
 # Use django-environ to parse the connection string
 
-# DATABASES = {"default": env.db()}
+#DATABASES = {"default": env.db()}
 
 DATABASES = {
     'default': {
